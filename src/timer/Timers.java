@@ -23,7 +23,7 @@ public class Timers extends javax.swing.JFrame {
     static int hours = 0;
     static int secondsCountDown = 10;
     static int secondsCountUp = 0;
-    
+
     static boolean stateStopWatch = true;
     static boolean stateCountDown = true;
     static boolean stateCountUp = true;
@@ -95,14 +95,14 @@ public class Timers extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        CountUp.setBackground(new java.awt.Color(255, 153, 153));
+        CountUp.setBackground(new java.awt.Color(255, 255, 255));
         CountUp.setFocusCycleRoot(true);
 
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(255, 153, 153));
         jLabel4.setText("COUNT UP");
 
         countup.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 48)); // NOI18N
-        countup.setForeground(new java.awt.Color(255, 255, 255));
+        countup.setForeground(new java.awt.Color(255, 153, 153));
         countup.setText("0");
 
         startBtnCounterUp.setText("START");
@@ -147,9 +147,9 @@ public class Timers extends javax.swing.JFrame {
         CountUpLayout.setVerticalGroup(
             CountUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CountUpLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(countup, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62)
                 .addGroup(CountUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -207,7 +207,7 @@ public class Timers extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
         );
 
-        CountDown.setBackground(new java.awt.Color(204, 204, 0));
+        CountDown.setBackground(new java.awt.Color(255, 255, 0));
 
         jLabel3.setText("COUNT DOWN");
 
@@ -240,18 +240,19 @@ public class Timers extends javax.swing.JFrame {
         CountDownLayout.setHorizontalGroup(
             CountDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CountDownLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(11, Short.MAX_VALUE)
                 .addComponent(startBtnCounterDown)
                 .addGap(18, 18, 18)
-                .addGroup(CountDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
+                .addGroup(CountDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(countdown, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(CountDownLayout.createSequentialGroup()
                         .addGroup(CountDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(countdown, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(stopBtnCounterDown))
-                        .addGap(4, 4, 4)))
-                .addGap(18, 18, 18)
-                .addComponent(resetBtnCounterDown)
+                            .addComponent(jLabel3)
+                            .addGroup(CountDownLayout.createSequentialGroup()
+                                .addComponent(stopBtnCounterDown)
+                                .addGap(4, 4, 4)))
+                        .addGap(18, 18, 18)
+                        .addComponent(resetBtnCounterDown)))
                 .addGap(34, 34, 34))
         );
         CountDownLayout.setVerticalGroup(
@@ -259,9 +260,9 @@ public class Timers extends javax.swing.JFrame {
             .addGroup(CountDownLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel3)
-                .addGap(61, 61, 61)
+                .addGap(62, 62, 62)
                 .addComponent(countdown, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(CountDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(startBtnCounterDown)
                     .addComponent(stopBtnCounterDown)
@@ -388,7 +389,7 @@ public class Timers extends javax.swing.JFrame {
                 for (;;) {
                     if (stateStopWatch == true) {
                         try {
-                            sleep(1000);
+
                             if (seconds == 60) {
                                 seconds = 0;
                                 minutes++;
@@ -402,7 +403,7 @@ public class Timers extends javax.swing.JFrame {
                             minuteStopWatch.setText(": " + minutes);
                             hourStopWatch.setText("" + hours);
                             seconds++;
-
+                            sleep(1000);
                         } catch (InterruptedException e) {
                             System.out.println(e.getMessage());
                         }
@@ -429,6 +430,8 @@ public class Timers extends javax.swing.JFrame {
         secondStopWatch.setText(":" + seconds);
         minuteStopWatch.setText(":" + minutes);
         hourStopWatch.setText("" + hours);
+
+
     }//GEN-LAST:event_resetBtnStopWatchActionPerformed
 
     private void startBtnCounterDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBtnCounterDownActionPerformed
@@ -440,20 +443,23 @@ public class Timers extends javax.swing.JFrame {
                 for (;;) {
                     if (stateCountDown == true) {
                         try {
-                            sleep(1000);
+
                             if (secondsCountDown != 0) {;
                                 secondsCountDown--;
+                                sleep(1000);
                             } else if (secondsCountDown == 0) {
                                 CountDown.setBackground(Color.white);
                             }
                             countdown.setText(" " + secondsCountDown);
-
+                            
                         } catch (InterruptedException e) {
                             System.out.println(e.getMessage());
                         }
+
                     } else {
                         break;
                     }
+
                 }
             }
         };
@@ -469,14 +475,14 @@ public class Timers extends javax.swing.JFrame {
                 for (;;) {
                     if (stateCountUp == true) {
                         try {
+                            secondsCountUp++;  
+                            if (secondsCountUp == 11) {
+                                CountUp.setBackground(Color.black);              
+                                break;                    
+                            }
                             sleep(1000);
-                           secondsCountUp++;
-                           if(secondsCountUp == 11){
-                               CountUp.setBackground(Color.black);
-                               break;
-                           }                          
                             countup.setText(" " + secondsCountUp);
-                            
+
                         } catch (InterruptedException e) {
                             System.out.println(e.getMessage());
                         }
@@ -498,7 +504,7 @@ public class Timers extends javax.swing.JFrame {
                         Date date = new Date();
                         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd  hh:mm:ss");
                         testCurrentTime.setText(dateFormat.format(date));
-                    } catch(Exception e) {
+                    } catch (Exception e) {
                         System.out.println(e.getMessage());
                         break;
                     }
@@ -514,8 +520,9 @@ public class Timers extends javax.swing.JFrame {
 
     private void resetBtnCounterDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetBtnCounterDownActionPerformed
         stateCountDown = false;
-        secondsCountDown = 10; 
+        secondsCountDown = 10;
         countdown.setText(" " + secondsCountDown);
+        CountDown.setBackground(Color.yellow);
     }//GEN-LAST:event_resetBtnCounterDownActionPerformed
 
     private void stopBtnCounterUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopBtnCounterUpActionPerformed
@@ -524,9 +531,11 @@ public class Timers extends javax.swing.JFrame {
 
     private void resetBtnCounterUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetBtnCounterUpActionPerformed
         stateCountUp = false;
-        secondsCountUp = 0; 
+        secondsCountUp = 0;
         countup.setText(" " + secondsCountUp);
-        
+        CountUp.setBackground(Color.WHITE);
+
+
     }//GEN-LAST:event_resetBtnCounterUpActionPerformed
 
     /**
